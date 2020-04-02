@@ -1,0 +1,40 @@
+<button (click)="startButtonClick()">
+  Start
+</button>
+<br>
+Список заданий:<br>
+sayHello - робот скажет вам привет<br>
+currentDate - робот выдаст точную дату и время<br>
+suicide - робот самоуничтожится<br>
+kill - робот уничтожит ближайшего к нему робота<br>
+create - робот создаст нового робота<br>
+NOTE: если количество роботов опустится ниже 10 начальных, автоматически создастся новый<br>
+<!--<button (click)="findSum(sum.value)">-->
+<!--  Find Sum-->
+<!--</button>-->
+<!--<input #sum>-->
+<!--<br>-->
+<input #taskName>
+<br>
+<button (click)="submitTask(taskName.value)">
+  Submit task
+</button>
+<br>
+<button (click)="getData(); getInfo()">
+  GetData
+</button>
+<br>
+<button (click)="clear();getData(); getInfo()">
+  Clear logs
+</button>
+<ul>
+  <li *ngFor="let log of logList">
+    {{log}}
+  </li>
+  <b>
+    Robots amount: {{info[0]}}<br>
+    Robots busy: {{info[1]}}
+  </b>
+</ul>
+
+
