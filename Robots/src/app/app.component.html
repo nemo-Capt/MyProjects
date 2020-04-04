@@ -1,0 +1,56 @@
+<div class="container">
+<button (click)="startButtonClick()" class="button">
+  Start
+</button>
+<br>
+  <p class="info">
+    INFO:<br>
+    Кнопка start запустит программу и создаст 10 изначальных роботов после чего<br>можно будет задавать им задания<br>
+    Логи обновляются каждую секунду<br>
+    Можно задать задание сразу нескольким роботам (писать номера роботов через пробел), тогда они будут помогать первому и работа пройдет быстрее<br>
+    Список заданий:<br>
+    say - робот передаст ваше сообщение(10сек)<br>
+    currentDate - робот выдаст точную дату и время(1сек)<br>
+    calculator - робот посчитает за вас выражение(1сек)(работают знаки+-, писать в формате 1+2-3+4-5-7)<br>
+    suicide - робот самоуничтожится(1сек)<br>
+    kill - робот уничтожит выбранного робота(5сек)<br>
+    create - робот создаст нового робота(1сек)<br>
+    NOTE: если количество роботов опустится ниже 10 начальных, автоматически создастся новый<br>
+    номер каждого нового робота автоинкрементируется, например если последний созданный был 10, то следующий будет 11<br>
+  </p>
+
+<select #taskName class="select">
+  <option>say</option>
+  <option>currentDate</option>
+  <option>calculator</option>
+  <option>create</option>
+  <option>suicide</option>
+  <option>kill</option>
+</select>
+<input #robotNumberStr placeholder="robot number" class="input">
+<div *ngIf="taskName.value=='say'"><input placeholder="your message" [(ngModel)]="problem" class="input2"></div>
+<div *ngIf="taskName.value=='calculator'"><input placeholder="your equation" [(ngModel)]="problem" class="input2"></div>
+<div *ngIf="taskName.value=='kill'"><input placeholder="which robot do you want to destroy?" [(ngModel)]="problem" class="input2"></div>
+
+<br>
+<button (click)="submitTask(taskName.value, robotNumberStr.value)" class="button">
+  Submit task
+</button>
+<br>
+
+<button (click)="clear(); getData(); getInfo()" class="button">
+  Clear logs
+</button>
+<ul class="logs">
+  <p *ngFor="let log of logList">
+    {{log}}
+  </p>
+  <b>
+    Robots amount: {{robotsInfo.robotsAlive.length}}<br>
+    Robots busy: {{robotsInfo.robotsBusy}}<br>
+    Robots available: {{robotsInfo.robotsAlive}}
+  </b>
+</ul>
+</div>
+
+
