@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Accounts plan</title>
+</head>
+<body>
+<div class="back">
+    <form action="/home">
+        <style>
+            .buttonAdd:hover {
+                background: #43B581;
+                color: white !important;
+            }
+        </style>
+        <button class="buttonAdd" style="font-size: 35px; color: #43B581;">
+            <i class="fas fa-home"></i>
+        </button>
+        <div class="invisibleField">Home</div>
+    </form>
+    <form action="/showcredits">
+        <button class="buttonCredits">
+            <i class="far fa-credit-card"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:235px">Credits</div>
+    </form>
+    <form action="/showdeposits">
+        <button class="buttonDeposits">
+            <i class="fas fa-university"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:370px">Deposits</div>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button class="buttonLogout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <div class="invisibleField" style="margin-top: 505px">Log Out</div>
+    </form>
+    <div class="innerDiv" align="center">
+
+        <div class="miniHeader">
+            <h1 class="topLabel">Accounts plan</h1>
+        </div>
+        <div class="miniDiv">
+        </div>
+        <div class="miniFooter" style="position: relative; height: 1050px;">
+            <table cellpadding="10" align="center">
+                <tr style="background: #23272A; color: white;">
+                    <th>Account number</th>
+                    <th>Account type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td>Settlement accounts</td>
+                    <td>Account 51 "Settlement accounts" is intended to summarize information on the availability and
+                        movement of funds in Belarusian rubles on the settlement accounts of the organization opened
+                        with banks.
+                    </td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td>Special bank accounts</td>
+                    <td>Account 55 “Special accounts in banks” is intended to summarize information on the availability
+                        and movement of funds in Belarusian rubles and foreign currencies held on special accounts in
+                        banks, as well as the presence and movement of precious metals and (or) precious stones in bank
+                        accounts ( hereinafter - accounts in precious metals)
+                    </td>
+                </tr>
+                <tr>
+                    <td>55-1</td>
+                    <td>Deposit accounts</td>
+                    <td>On the sub-account 55-1 "Deposit accounts" the presence and movement of funds placed in bank
+                        deposits (deposits) are taken into account
+                    </td>
+                </tr>
+                <tr>
+                    <td>55-2</td>
+                    <td>Precious metal accounts</td>
+                    <td>On subaccount 55-2 "Accounts in precious metals" the presence and movement of precious metals
+                        and (or) precious stones in bank accounts are taken into account.
+                    </td>
+                </tr>
+                <tr>
+                    <td>55-3</td>
+                    <td>Special purpose cash account</td>
+                    <td>On the sub-account 55-3 "Special Purpose Cash Account", the availability and movement of
+                        special-purpose cash on special accounts in banks are taken into account.
+                    </td>
+                </tr>
+                <tr>
+                    <td>57</td>
+                    <td>Cash in transit</td>
+                    <td>Account 57 "Cash in transit" is intended to summarize information on cash flows in Belarusian
+                        rubles and foreign currencies deposited in banks, including through collection, or post offices
+                        for crediting to the settlement or other accounts of the organization, but not yet credited by
+                        appointment, as well as on the movement of funds in Belarusian rubles for the acquisition of
+                        foreign currency and cash in foreign currencies for sale.
+                    </td>
+                </tr>
+                <tr>
+                    <td>57-1</td>
+                    <td>Cash collected</td>
+                    <td>On subaccount 57-1 "Cash collected" takes into account the introduction of cash into the cash
+                        departments of banks, including through collection, or post offices and their crediting to the
+                        settlement or other accounts of the organization.
+                    </td>
+                </tr>
+                <tr>
+                    <td>57-2</td>
+                    <td>Cash for acquiring foreign currency</td>
+                    <td>Subaccount 57-2 "Cash for the acquisition of foreign currency" takes into account the movement
+                        of funds in Belarusian rubles for the acquisition of foreign currency. The debit of sub-account
+                        57-2 “Cash for the acquisition of foreign currency” reflects the transfer of funds in Belarusian
+                        rubles for the purchase of foreign currency and the excess of the ruble equivalent of the
+                        purchased foreign currency over the amount in Belarusian rubles debited from the current
+                        account, and for the loan of the sub-account 57-2 "Cash for the acquisition of foreign currency"
+                        - the amount of purchased foreign currency at the purchase rate on the date of crediting to the
+                        foreign currency account and the excess of the amount debited from the current account to
+                        Belarus Sgiach rubles on ruble equivalent of the purchased foreign currency.
+                    </td>
+                </tr>
+                <tr>
+                    <td>58</td>
+                    <td>Short-term financial investments</td>
+                    <td>Account 58 "Short-term financial investments" is intended to summarize information on the
+                        presence and movement of investments in securities of other organizations, bonds of state and
+                        local loans (if the established maturity does not exceed 12 months), etc., as well as provided
+                        by the organization to other organizations loans (for a period of less than 12 months).
+                    </td>
+                </tr>
+                <tr>
+                    <td>58-1</td>
+                    <td>Short-term financial investments in securities</td>
+                    <td>In the account 58-1 "Short-term financial investments in securities" is kept a record of
+                        short-term investments in securities
+                    </td>
+                </tr>
+                <tr>
+                    <td>58-2</td>
+                    <td>Short-term loans granted</td>
+                    <td>Sub-account 58-2 “Short-term loans granted” keeps records of short-term loans granted</td>
+                </tr>
+                <tr>
+                    <td>59</td>
+                    <td>Impairment provisions for short-term financial investments</td>
+                    <td>Account 59 "Provisions for the impairment of short-term financial investments" is intended for
+                        the publication of information on the demand for short-term financial investments made in
+                        accordance with the established procedure.
+
+                        90 “Income and expenses from current activities” (if the organization is a professional
+                        participant in the securities market), 91 “Other income and expenses” (if the organization is
+                        not a professional participant in the securities market) and loan account 59 “Reserves
+                        impairment of short-term financial investments. ” A similar record is made when the amount of
+                        the created reserve is increased.
+
+                        (as amended by Resolution of the Ministry of Finance of December 20, 2012 N 77)
+
+                        It is believed that the creation of reserve accounts and the reservation of accounts in
+                        accordance with the requirements of account 59 “Reserves and expenses for current activities”
+                        (in the case of 91 “Other income and expenses” (in case the organization is not a professional
+                        participant in the securities market).
+
+                        (as amended by Resolution of the Ministry of Finance of December 20, 2012 N 77)
+
+                        Analytical accounting for account 59 "Provisions for the impairment of short-term financial
+                        investments" is maintained for each reserve.
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

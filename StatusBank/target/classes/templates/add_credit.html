@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/edit.css" th:href="@{/css/edit.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/edit.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Add credit</title>
+</head>
+<body>
+<div class="back">
+    <form action="/home">
+        <style>
+            .buttonAdd:hover {
+                background: #43B581;
+                color: white !important;
+            }
+        </style>
+        <button class="buttonAdd" style="font-size: 35px; color: #43B581;">
+            <i class="fas fa-home"></i>
+        </button>
+        <div class="invisibleField">Home</div>
+    </form>
+    <form action="/showcredits">
+        <button class="buttonCredits">
+            <i class="far fa-credit-card"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:235px">Credits</div>
+    </form>
+    <form action="/showdeposits">
+        <button class="buttonDeposits">
+            <i class="fas fa-university"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:370px">Deposits</div>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button class="buttonLogout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <div class="invisibleField" style="margin-top: 505px">Log Out</div>
+    </form>
+    <div class="innerDiv" align="center">
+
+        <div class="miniHeader">
+            <h1 class="topLabel">Add credit to user <a th:text="*{user.username}" style="color: #43B581"></a></h1>
+        </div>
+        <div class="miniDiv">
+        </div>
+        <div class="miniFooter" style="position: relative;">
+            <table cellpadding="10">
+                <thead>
+                <tr style="background: #23272A; color: white;">
+                    <th>Credit number</th>
+                    <th>Percent</th>
+                    <th>Type</th>
+                    <th>Period</th>
+                    <th>Max loan</th>
+                    <th>Issue credit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr align="center" th:each="credits : ${userCredits}">
+                    <td th:text="${credits.id}"></td>
+                    <td th:text="${credits.percent}"></td>
+                    <td th:text="${credits.name}"></td>
+                    <td th:text="${credits.period}"></td>
+                    <td th:text="${credits.maxloan}"></td>
+                    <td>
+                        <form action="#" th:action="@{'/savecredit/' + ${credits.id}}" th:object="${user}"
+                              method="post">
+                            <input style="width: 150px; height: 25px;" class="inputField" type="number"
+                                   th:field="*{creditvalue}"
+                                   placeholder="Credit amount" th:max="${credits.maxloan}">
+                            <input style="width: 150px; height: 25px;" class="inputField" type="text"
+                                   th:field="*{treatynumbercredit}" minlength="13" maxlength="13"
+                                   placeholder="Treaty number">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{id}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{username}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{password}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{balance}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{rights}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{creditdate}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{depositdate}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{depositvalue}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{creditpercent}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{creditname}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{depositpercent}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{depositname}">
+                            <input style="position: absolute; display: none;" type="text"
+                                   th:field="*{treatynumberdeposit}">
+                            <input style="position: absolute; display: none;" type="text" th:field="*{balancenumber}">
+                            <button class="buttonSaveCredit">
+                                <i class="fas fa-save"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <form action="#" th:action="@{'/personal/' + ${user.id}}" method="post">
+                <button class="buttonBack">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </form>
+            <form action="/accounts">
+                <button class="buttonAccounts">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="invisibleField" style="position: absolute; bottom: 95px; right: 13px; font-size: 13px; padding-top: 12px;">Accounts plan</div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

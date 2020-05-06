@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/personal_page.css" th:href="@{/css/personal_page.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/personal_page.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Personal page</title>
+</head>
+<body>
+<div class="back">
+    <form action="/home">
+        <style>
+            .buttonAdd:hover {
+                background: #43B581;
+                color: white !important;
+            }
+        </style>
+        <button class="buttonAdd" style="font-size: 35px; color: #43B581;">
+            <i class="fas fa-home"></i>
+        </button>
+        <div class="invisibleField">Home</div>
+    </form>
+    <form action="/showcredits">
+        <button class="buttonCredits">
+            <i class="far fa-credit-card"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:235px">Credits</div>
+    </form>
+    <form action="/showdeposits">
+        <button class="buttonDeposits">
+            <i class="fas fa-university"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:370px">Deposits</div>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button class="buttonLogout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <div class="invisibleField" style="margin-top: 505px">Log Out</div>
+    </form>
+    <div class="innerDiv" align="center">
+
+        <div class="miniHeader">
+            <h1 class="topLabel"><a th:text="${user.username}" style="color: #43B581"></a><a
+                    style="color: #43B581">'s</a> page</h1>
+        </div>
+        <div class="miniDiv">
+        </div>
+        <div class="miniFooter" style="position: relative;">
+            <table cellpadding="10">
+                <thead>
+                <tr style="background: #23272A; color: white;">
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Balance</th>
+                    <th>Balance number</th>
+                    <th>Rights</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.password}"></td>
+                    <td style="color: #43B581" th:text="${user.balance}"></td>
+                    <td th:text="${user.balancenumber}"></td>
+                    <td th:text="${user.rights}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <form action="#" th:action="@{/deletecredit}" th:object="${user}" method="post">
+                <input style="position: absolute; display: none;" type="text" th:field="*{id}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{username}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{password}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{balance}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{rights}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditdate}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditvalue}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositdate}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositvalue}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditpercent}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditname}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositpercent}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositname}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{treatynumbercredit}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{treatynumberdeposit}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{balancenumber}">
+                <table cellpadding="10" style="margin-top: 90px; width: 30%;"
+                       align="center">
+                    <thead>
+                    <tr>
+                        <th style="background: #23272A; color: white;" colspan="6">Your credit</th>
+                    </tr>
+                    <tr style="background: #23272A; color: white;">
+                        <th>Date</th>
+                        <th>Value</th>
+                        <th>Percent</th>
+                        <th>Credit type</th>
+                        <th>Treaty number</th>
+                        <th>Repay</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${user.creditdate}"></td>
+                        <td th:text="${user.creditvalue}"></td>
+                        <td th:text="${user.creditpercent}"></td>
+                        <td th:text="${user.creditname}"></td>
+                        <td th:text="${user.treatynumbercredit}"></td>
+                        <td rowspan="2">
+                            <button onclick="return confirm('Do you want to repay credit now?')"
+                                    class="buttonDeleteCredit">
+                                <i id="deleteCredit" class="far fa-money-bill-alt"></i>
+                            </button>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <form action="#" th:action="@{'/addcredit/' + ${user.id}}" th:object="${user}" method="post">
+                <button class="buttonNewCredit" style="margin-top: 35px; margin-left: 50%; float: left;">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </form>
+
+
+            <form action="#" th:action="@{/deletedeposit}" th:object="${user}" method="post">
+                <input style="position: absolute; display: none;" type="text" th:field="*{id}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{username}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{password}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{balance}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{rights}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditdate}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditvalue}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositdate}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositvalue}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditpercent}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{creditname}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositpercent}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{depositname}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{treatynumbercredit}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{treatynumberdeposit}">
+                <input style="position: absolute; display: none;" type="text" th:field="*{balancenumber}">
+                <table cellpadding="10" style="margin-top: 125px; width: 30%;" align="center">
+                    <thead>
+                    <tr>
+                        <th style="background: #23272A; color: white;" colspan="6">Your deposit</th>
+                    </tr>
+                    <tr style="background: #23272A; color: white;">
+                        <th>Date</th>
+                        <th>Value</th>
+                        <th>Percent</th>
+                        <th>Credit type</th>
+                        <th>Treaty number</th>
+                        <th>Get</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${user.depositdate}"></td>
+                        <td th:text="${user.depositvalue}"></td>
+                        <td th:text="${user.depositpercent}"></td>
+                        <td th:text="${user.depositname}"></td>
+                        <td th:text="${user.treatynumberdeposit}"></td>
+                        <td rowspan="2">
+                            <button class="buttonDeleteDeposit"
+                                    onclick="return confirm('Do you want to get deposit now?')">
+                                <i id="deleteDeposit" class="far fa-money-bill-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <form action="#" th:action="@{'/adddeposit/' + ${user.id}}" th:object="${user}" method="post">
+                <button class="buttonNewCredit" style="margin-top: 35px; margin-left: 50%; float: left;">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </form>
+            <form action="/accounts">
+                <button class="buttonAccounts">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="invisibleField"
+                     style="position: absolute; bottom: 95px; right: 13px; font-size: 13px; padding-top: 12px;">Accounts
+                    plan
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

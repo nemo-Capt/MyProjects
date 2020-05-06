@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>User manager</title>
+</head>
+<body>
+<div class="back">
+    <form action="new">
+        <input class="buttonAdd" type="submit" value="&#43;"/>
+        <div class="invisibleField">Add</div>
+    </form>
+    <form action="/showcredits">
+        <button class="buttonCredits">
+            <i class="far fa-credit-card"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:235px">Credits</div>
+    </form>
+    <form action="/showdeposits">
+        <button class="buttonDeposits">
+            <i class="fas fa-university"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:370px">Deposits</div>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button class="buttonLogout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <div class="invisibleField" style="margin-top: 505px">Log Out</div>
+    </form>
+    <div class="innerDiv" align="center">
+
+        <div class="miniHeader">
+            <h1 class="topLabel">User List</h1>
+        </div>
+        <div class="miniDiv">
+        </div>
+        <div class="miniFooter" style="position: relative;">
+            <table cellpadding="10" align="center">
+                <thead>
+                <tr style="background: #23272A; color: white;">
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Balance</th>
+                    <th>Balance number</th>
+                    <th>Rights</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr align="center" th:each="user : ${listUsers}">
+                    <td style="color: white" th:text="${user.id}">User ID</td>
+                    <td>
+                        <form action="#" th:action="@{'/personal/' + ${user.id}}" method="post">
+                            <button class="buttonUser">
+                                <i class="fas fa-user" style="margin-left: -110%;"></i>
+                            </button>
+                        </form>
+                        <a th:text="${user.username}"></a>
+                    </td>
+                    <td th:text="${user.password}"></td>
+                    <td th:text="${user.balance}"></td>
+                    <td th:text="${user.balancenumber}"></td>
+                    <td th:text="${user.rights}"></td>
+                    <td>
+                        <a style="color: white" th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                        <a style="color: #c0001b" onclick="return confirm('Delete user?')"
+                           th:href="@{'/delete/' + ${user.id}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <form action="/accounts">
+                <button class="buttonAccounts">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="invisibleField"
+                     style="position: absolute; bottom: 95px; right: 13px; font-size: 13px; padding-top: 12px;">Accounts
+                    plan
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

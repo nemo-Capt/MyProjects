@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/edit.css" th:href="@{/css/edit.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/edit.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Deposits</title>
+</head>
+<body>
+<div class="back">
+    <form action="/home">
+        <style>
+            .buttonAdd:hover {
+                background: #43B581;
+                color: white !important;
+            }
+        </style>
+        <button class="buttonAdd" style="font-size: 35px; color: #43B581;">
+            <i class="fas fa-home"></i>
+        </button>
+        <div class="invisibleField">Home</div>
+    </form>
+    <form action="/showcredits">
+        <button class="buttonCredits">
+            <i class="far fa-credit-card"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:235px">Credits</div>
+    </form>
+    <form>
+        <button class="buttonDeposits" style="border-radius: 30%;
+    background: #7289DA;">
+            <i class="fas fa-university"></i>
+        </button>
+        <div class="invisibleField" style="margin-top:370px">Deposits</div>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button class="buttonLogout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <div class="invisibleField" style="margin-top: 505px">Log Out</div>
+    </form>
+    <div class="innerDiv" align="center">
+
+        <div class="miniHeader">
+            <h1 class="topLabel">Available deposits</h1>
+        </div>
+        <div class="miniDiv">
+        </div>
+        <div class="miniFooter" style="position: relative;">
+            <table cellpadding="10">
+                <thead>
+                <tr style="background: #23272A; color: white;">
+                    <th>Credit number</th>
+                    <th>Percent</th>
+                    <th>Type</th>
+                    <th>Period</th>
+                    <th>Max loan</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr align="center" th:each="deposits : ${userDepositsList}">
+                    <td th:text="${deposits.id}"></td>
+                    <td th:text="${deposits.percent}"></td>
+                    <td th:text="${deposits.name}"></td>
+                    <td th:text="${deposits.period}"></td>
+                    <td th:text="${deposits.maxloan}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <form action="/accounts">
+                <button class="buttonAccounts">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="invisibleField"
+                     style="position: absolute; bottom: 95px; right: 13px; font-size: 13px; padding-top: 12px;">Accounts
+                    plan
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

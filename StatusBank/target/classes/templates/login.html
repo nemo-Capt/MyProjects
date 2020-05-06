@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="/../static/css/login.css" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="C:/Users/nemoCapt/Desktop/Uni/Прога/StatusBank/src/main/resources/static/css/login.css"/>
+    <title>Login</title>
+</head>
+<body>
+<div class="mainDiv" align="center">
+    <h1 class="sighLabel">Sign In</h1>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <input class="inputField" type="text" name="username" placeholder="Username"/>
+        </div>
+        <div>
+            <input class="inputField" type="password" name="password" placeholder="Password"/>
+        </div>
+        <div>
+            <input class="buttonSign" type="submit" value="Login"/>
+        </div>
+    </form>
+    <form href="/" action="/">
+        <input class="buttonBack" type="submit" value="Back"/>
+    </form>
+    <div class="loggingError" th:if="${param.error}">
+        Invalid username or password.
+    </div>
+    <div class="loggingError" th:if="${param.logout}">
+        You have been logged out.
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+body {
+    background: rgb(241, 250, 255);
+    background: radial-gradient(circle, rgba(241, 250, 255, 1) 0%, rgba(191, 203, 210, 1) 45%, rgba(163, 181, 193, 1) 69%, rgba(114, 137, 218, 1) 100%);
+}
+
+h1, h2, h3 {
+    color: white;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+table {
+    background: #7289DA;
+    width: 95%;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    color: #99aab5;
+    background: #2C2F33;
+}
+
+td:hover {
+    color: white !important;
+}
+
+form {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+div {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+.topLabel {
+    padding-top: 17px;
+}
+
+
+.back {
+    margin: 2% auto auto;
+    background: #202225;
+    width: 85%;
+    border-radius: 6px;
+}
+
+.innerDiv {
+    padding-top: 5px;
+    padding-left: 120px;
+    padding-right: 30px;
+}
+
+.invisibleField {
+    cursor: default;
+    position: absolute;
+    background: black;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    margin-top: 100px;
+    margin-left: 12px;
+    opacity: 0;
+    border-radius: 10px;
+}
+
+.buttonAdd:hover + .invisibleField {
+    background: black;
+    opacity: 0.75;
+}
+
+.buttonCredits:hover + .invisibleField {
+    background: black;
+    opacity: 0.75;
+}
+
+.buttonDeposits:hover + .invisibleField {
+    background: black;
+    opacity: 0.75;
+}
+
+.buttonLogout:hover + .invisibleField {
+    background: black;
+    opacity: 0.75;
+}
+
+.buttonLogout:hover + .invisibleField {
+    background: black;
+    opacity: 0.75;
+}
+
+.buttonAccounts:hover + .invisibleField {
+    background: black;
+    opacity: 0.75;
+}
+
+.buttonAdd {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 23px;
+    width: 75px;
+    height: 75px;
+    font-size: 65px;
+    border-radius: 50%;
+    border: none;
+    background: #36393F;
+    color: white;
+    outline: none;
+    transition: 0.2s
+}
+
+.buttonAdd:hover {
+    border-radius: 30%;
+    background: #7289DA;
+    transition: 0.2s;
+}
+
+.buttonAdd:active {
+    margin-top: 153px;
+}
+
+.buttonCredits {
+    position: absolute;
+    margin-top: 285px;
+    margin-left: 23px;
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #36393F;
+    color: white;
+    outline: none;
+    transition: 0.2s;
+    padding-top: 5px;
+}
+
+.buttonCredits:hover {
+    border-radius: 30%;
+    background: #7289DA;
+    transition: 0.2s;
+}
+
+.buttonCredits:active {
+    margin-top: 288px;
+}
+
+.buttonDeposits {
+    position: absolute;
+    margin-top: 420px;
+    margin-left: 23px;
+    width: 75px;
+    height: 75px;
+    font-size: 35px;
+    border-radius: 50%;
+    border: none;
+    background: #36393F;
+    color: white;
+    outline: none;
+    transition: 0.2s;
+}
+
+.buttonDeposits:hover {
+    border-radius: 30%;
+    background: #7289DA;
+    transition: 0.2s;
+}
+
+.buttonDeposits:active {
+    margin-top: 423px;
+}
+
+.buttonLogout {
+    position: absolute;
+    margin-top: 555px;
+    margin-left: 23px;
+    width: 75px;
+    height: 75px;
+    font-size: 35px;
+    border-radius: 50%;
+    border: none;
+    background: #36393F;
+    color: white;
+    outline: none;
+    transition: 0.2s
+}
+
+.buttonLogout:hover {
+    border-radius: 30%;
+    background: #F04747;
+    transition: 0.2s;
+}
+
+.buttonLogout:active {
+    margin-top: 558px;
+}
+
+.buttonAccounts {
+    bottom: 35px;
+    right: 35px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 50%;
+    border: solid 1px #23272A;
+    background: #202225;
+    color: white;
+    outline: none;
+    transition: 0.2s
+}
+
+.buttonAccounts:hover {
+    border-radius: 30%;
+    background: #7289DA;
+    transition: 0.2s;
+}
+
+.buttonAccounts:active {
+    bottom: 32px;
+}
+
+.buttonUser {
+    background: #99aab5;
+    border: none;
+    outline: none;
+    float: left;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    font-size: 0;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.buttonUser:hover {
+    background: #43B581;
+    color: #23272A;
+    border-radius: 30%;
+    transform: scale(1.9);
+    font-size: 10px;
+    transition: 0.2s;
+}
+
+.buttonStandard {
+    width: 85px;
+    height: 40px;
+    border: none;
+    background: #2C2F33;
+    color: #99aab5;
+    outline: none;
+    border-radius: 7px;
+}
+
+.buttonStandard:hover {
+    color: white !important;
+}
+
+.buttonStandard:active {
+    background: #23272A !important;
+}
+
+.miniHeader {
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.64);
+    border-radius: 10px 10px 0 0;
+    height: 80px;
+    background: #2C2F33;
+}
+
+.miniFooter {
+    min-height: 1000px;
+    background: #36393F;
+}
+
+.miniDiv {
+    margin-top: 1px;
+    height: 40px;
+    background: #36393F;
+}
+
+.userLink {
+    text-decoration: none;
+    color: #99aab5 !important;
+}
+
+.userLink:hover {
+    color: white !important;
+}

@@ -1,0 +1,75 @@
+.loggingError {
+    margin-top: 140px;
+    color: #c0001b;
+}
+
+.mainDiv {
+    background: #36393F;
+    margin: 4% auto auto;
+    width: 500px;
+    height: 600px;
+    border-radius: 50px;
+}
+
+.sighLabel {
+    padding-top: 50px;
+}
+
+.inputField {
+    margin-top: 17px;
+    width: 177px;
+    height: 30px;
+    border-radius: 15px;
+    border: #23272A 1px solid;
+    background: #2C2F33;
+    color: white;
+    padding: 10px;
+    outline: none;
+}
+
+.inputField:hover {
+    border: black 1px solid;
+}
+
+.buttonSign {
+    position: absolute;
+    margin-top: 17px;
+    margin-left: -97px;
+    width: 195px;
+    height: 40px;
+    border: none;
+    background: #7289DA;
+    color: white;
+    outline: none;
+    border-radius: 7px;
+}
+
+.buttonSign:hover {
+    filter: brightness(105%);
+}
+
+.buttonSign:active {
+    margin-top: 20px;
+}
+
+.buttonBack {
+    position: absolute;
+    margin-top: 74px;
+    margin-left: -97px;
+    width: 195px;
+    height: 40px;
+    border: none;
+    background: #2C2F33;
+    color: #99aab5;
+    outline: none;
+    border-radius: 7px;
+}
+
+.buttonBack:hover {
+    color: white !important;
+    background: #23272A !important;
+}
+
+.buttonBack:active {
+    margin-top: 77px;
+}

@@ -1,0 +1,59 @@
+.buttonDeleteCredit {
+    font-size: 25px;
+    height: 35px;
+    width: 50px;
+    border: none;
+    outline: none;
+    background: #2C2F33;
+    color: #F04747;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.buttonDeleteCredit:hover {
+    background: #36393F;
+    color: #7289DA;
+}
+
+#deleteCredit {
+    margin-top: 5%;
+}
+
+.buttonDeleteDeposit {
+    font-size: 25px;
+    height: 35px;
+    width: 50px;
+    border: none;
+    outline: none;
+    background: #2C2F33;
+    color: #43B581;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.buttonDeleteDeposit:hover {
+    background: #36393F;
+    color: #7289DA;
+}
+
+#deleteDeposit {
+    margin-top: 5%;
+}
+
+.buttonNewCredit {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: #23272A 1px solid;
+    outline: none;
+    font-size: 25px;
+    background: #7289DA;
+    color: white;
+    transition: 0.2s;
+}
+
+.buttonNewCredit:hover {
+    transition: 0.2s;
+    background: #43B581;
+    border-radius: 30%;
+}
