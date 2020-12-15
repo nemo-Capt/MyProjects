@@ -11,7 +11,7 @@ public class Subscriber implements Observer {
     }
 
     @Override
-    public void handleEvent(List<String> vacancies) {
-        System.out.println("Observer: " + name + "\nWe have some changes in car list:\n" + vacancies + "\n==============================");
+    public void handleEvent(List<String> cars) {
+        System.out.println("Observer: " + name + "\nWe have some changes in car list:\n" + cars + "\n==============================");
     }
 }
