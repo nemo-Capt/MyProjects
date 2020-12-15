@@ -1,5 +1,6 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import proxy.CountInterface;
+import proxy.CountProxy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
